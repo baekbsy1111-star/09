@@ -1,17 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 int main(void) {
-    FILE *fp;
-    int ch;
+    FILE *fp = NULL;
+    char c;
 
     fp = fopen("sample.txt", "r");
-   
+    if (fp == NULL) {
+        printf("파일을 못열음\n");
+        return 1;
+    }
 
-    while ((ch = fgetc(fp)) != EOF) {
-        putchar(ch);  
+    while ((c = fgetc(fp)) != EOF) {
+        putchar(c);
     }
 
     fclose(fp);
-    system("PAUSE");
-    return 0;
+
+    system("PAUSE");  
+    return 0;         
 }
