@@ -1,21 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 int main(void) {
-    FILE *fp;               
-    char word[30];           
-    int i;  
+    FILE *fp;
+    int ch;
 
-    fp = fopen("sample.txt", "w");  
-    
+    fp = fopen("sample.txt", "r");
+   
 
-    for (i = 0; i < 3; i++) {
-        printf("input a word: ");
-        scanf("%s", word);
-        fprintf(fp, "%s\n", word);  
+    while ((ch = fgetc(fp)) != EOF) {
+        putchar(ch);  
     }
 
-    fclose(fp); 
+    fclose(fp);
     system("PAUSE");
     return 0;
 }
