@@ -1,11 +1,21 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
-int main(void)
-{
-  char str[30]="happy C programming";
-  
-  printf("문자열\"%s\"의 길이:%i", str, strlen(str)); 
-  system("PAUSE");	
-  return 0;
+int main(void) {
+    FILE *fp;               
+    char word[30];           
+    int i;  
+
+    fp = fopen("sample.txt", "w");  
+    
+
+    for (i = 0; i < 3; i++) {
+        printf("input a word: ");
+        scanf("%s", word);
+        fprintf(fp, "%s\n", word);  
+    }
+
+    fclose(fp); 
+    system("PAUSE");
+    return 0;
 }
